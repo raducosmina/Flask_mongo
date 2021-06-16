@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h1>Dashboard</h1>
+<a class = "btn btn-success" href="/add">Adauga carti</a>
+<hr>
+<table class = "table table-striped">
+    <tr>
+        <th>Autor</th>
+        <th>Titlu</th>
+        <th>Gen</th>
+        <th>An</th>
+        <th>Nume editor</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for result in results %}
+    <tr>
+        <td>{{result.author}}</td>
+        <td>{{result.title}}</td>
+        <td>{{result.gen}}</td>
+        <td>{{result.an}}</td>
+        <td>{{result.nume_editor}}</td>
+        <td>
+            <form action= "{{url_for('add_wishlist', id = result._id)}}" method="post">
+                <input type = "hidden" name="_method" value ="wishlist">
+                <input type="submit" value="Add wishlist" class = "btn btn-danger">
+            </form>
+        </td>
+        <td>
+            <form action= "{{url_for('add_preferate', id = result._id)}}" method="post">
+                <input type = "hidden" name="_method" value ="wishlist">
+                <input type="submit" value="Add preferate" class = "btn btn-danger">
+            </form>
+        </td>
+        <td><a href="edit/{{result._id}}" class ="btn btn-default pullright">Edit</a></td>
+        <td>
+            <form action= "{{url_for('delete', id = result._id)}}" method="post">
+                <input type = "hidden" name="_method" value ="DELETE">
+                <input type="submit" value="Delete" class = "btn btn-danger">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

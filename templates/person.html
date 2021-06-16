@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    
+    <div class="jumbotron text-center">
+        <h1>{{result.author}}</h1>
+        <p class="lead">Titlu: {{result[0].title}}</p>
+        <hr>
+        <p class="lead">Autor:  {{result[0].author}}</p>
+        <hr>
+        <p class="lead">Gen: {{result[0].gen}}</p>
+        <hr>
+        <p class="lead">An:  {{result[0].an}}</p>
+        <hr>
+        <p class="lead">Nume editor: {{result[0].nume_editor}}</p>
+        <hr>
+        <p class="lead">Rezumat:  {{result[0].rezumat}}</p>
+        
+    </div>
+{% endblock %}

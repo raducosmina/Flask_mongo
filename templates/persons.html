@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Carti</h1>
+    <ul class='list-group'>
+    {% for result in results %}
+        <li class='list-group-item'><a href='carte/{{result._id}}'>{{result.author}}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

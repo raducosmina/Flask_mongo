@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <h1>Collections</h1>
+    <table class = "table table-striped">
+    {% for collect in collection %}
+        <tr>
+            <td class='list-group-item'>
+                <a href='{{collect}}'>{{collect}}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
